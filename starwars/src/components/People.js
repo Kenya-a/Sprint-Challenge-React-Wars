@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import User from './Props'
 
-const user = function () { }
 
 function Characters() {
     const [data, setData] = useState([]);
+
     // const [type, setType] = useState('name');
     useEffect(() => {
-        axios.get(`https://swapi.co/api/people/1`)
+        axios.get(`https://swapi.co/api/people/`)
 
             .then(response => {
                 console.log('StarWars! :', response)
                 setData(response.data);
+                const characters = data.results
+                
+                console.log('people:', characters)
             })
 
             .catch(error => {
@@ -24,10 +28,8 @@ function Characters() {
 
     return (
         <div>Hello,
-            {data.name}
-            {object.values(array).map(name =>{
-                key = {name}
-            })}
+            {data.result}
+           
         </div>
 
     )
